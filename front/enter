@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker exec -it front-bash-1 bash

@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+    bash:
+        restart: always
+        build: .
+        ports:
+        - "80:80"
+        - "443:443"
+        networks:
+        - proxynet
+networks:
+  proxynet:
+    name: main
+    external: true

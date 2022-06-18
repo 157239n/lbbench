@@ -1,0 +1,8 @@
+#!/bin/bash
+
+npm install
+node app.js 8000 &
+node app.js 8001 &
+node app.js 8002 &
+node app.js 8003 &
+
