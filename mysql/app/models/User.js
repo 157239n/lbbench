@@ -2,6 +2,7 @@ import { Model, DataTypes } from "sequelize";
 import sequelize from "../utils/database.js";
 import utils from "../utils/index.js";
 import bcrypt from "bcrypt";
+import { randomNames } from "./randomNames.js";
 
 /**
  * User model. Pretty bog standard.
@@ -11,6 +12,10 @@ class User extends Model {
     ADMIN: 0,
     USER: 1,
   };
+
+  static randomName() {
+    return randomNames[Math.round(Math.random() * (randomNames.length - 1))];
+  }
 
   /**
    * Remember to change panel/model/User to be in sync as well
@@ -68,6 +73,7 @@ class User extends Model {
 User.init(
   {
     name: DataTypes.STRING,
+    nameNoIndex: DataTypes.STRING,
     phoneNumber: DataTypes.STRING,
     passwordHash: DataTypes.STRING,
     role: DataTypes.INTEGER, // User.Role enum
